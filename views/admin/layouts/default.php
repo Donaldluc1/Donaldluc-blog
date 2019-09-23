@@ -18,6 +18,9 @@
                 <a href="<?= $router->url('admin_categories') ?>" class="nav-link">Categories</a>
             </li>
             <li class="nav-item">
+                <a href="<?= $router->url('admin_songs') ?>" class="nav-link">Songs</a>
+            </li>
+            <li class="nav-item">
                 <form action="<?= $router->url('logout') ?>" method="post" style="display:inline">
                     <button type="submit" class="nav-link" style="background:transparent; border:none">Se deconnecter</button>
                 </form>

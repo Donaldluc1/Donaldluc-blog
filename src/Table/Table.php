@@ -63,6 +63,12 @@ abstract class Table{
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
 
+    public function sixSongs(): array
+    {
+        $sql = "SELECT * FROM {$this->table} LIMIT 6";
+        return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
+    }
+
     public function delete (int $id)
     {
         $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");

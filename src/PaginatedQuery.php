@@ -63,12 +63,33 @@ HTML;
 HTML;
     }
 
+    public function previousSearchLink(string $link, $par): ?string
+    {
+        $currentPage = $this->getCurrentPage();
+        if($currentPage <= 1) return null;
+        if($currentPage > 2) $link .= "?page=" . ($currentPage - 1) . '&q=' . $par;
+        return <<<HTML
+        <a href="{$link}" class="btn btn-primary">&laquo; Page précédente</a>
+HTML;
+    }
+
+    public function nextSearchLink(string $link, $par): ?string
+    {
+        $currentPage = $this->getCurrentPage();
+        $pages = $this->getPages();
+        if($currentPage >= $pages) return null;
+        $link .= "?page=" . ($currentPage + 1) . '&q=' . $par;
+        return <<<HTML
+        <a href="{$link}" class="btn btn-primary ml-auto">Page suivante &raquo;</a>
+HTML;
+    }
+
     private function getCurrentPage(): int
     {
         return URL::getPositiveInt('page', 1);
     }
 
-    private function getPages(): int
+    private function getPages(): float
     {
         if($this->count === null){
             $this->count = (int)$this->pdo

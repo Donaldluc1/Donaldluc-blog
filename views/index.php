@@ -1,13 +1,19 @@
 <?php
-
 use App\Connection;
+use App\Table\CommentsTable;
 use App\Table\PostTable;
+use App\Table\SongTable;
 
-$title = 'Mon Blog';
 $pdo = Connection::getPDO(); 
 
 $table = new PostTable($pdo);
 $posts = $table->sixRows();
+
+$table = new SongTable($pdo);
+$songs = $table->sixSongs();
+
+$commentsTable = new CommentsTable($pdo);
+$comments = $commentsTable->sixRows(); 
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,146 +138,23 @@ $posts = $table->sixRows();
     <section id="menu" class="py-5 my-5">
         <div class="container">
 
-            <div class="row">
-                <div class="col-md-6">
                     <!-- title-->
                     <div class="row">
-                        <div class="col">
-                            <h1 class="primary-color text-uppercase">soups</h1>
-                        </div>
-                    </div>
-                    <!-- end title-->
-
-                    <!-- single item-->
-                        <div class="single-item d-flex justify-content-between my-3 p-3">
-                            <div class="single-item-text">
-                                <h2 class="text-uppercase text-dark">soup</h2>
-                                <h4 class="text-muted">lorem ipsum dolor amet.</h4>
-                            </div>
-                            <div class="single-item-price align-self-end">
-                                <hi class="text-uppercase text-dark">$10</hi>
-                            </div>
-                        </div>
-                    <!--end single item-->
+                    <?php foreach($songs as $song): ?>
+                     <div class="col-md-6">
                      <!-- single item-->
                     <div class="single-item d-flex justify-content-between my-3 p-3 special">
                             <div class="single-item-text">
-                                <h2 class="text-uppercase text-dark">soup</h2>
-                                <h4 class="text-muted">lorem ipsum dolor amet.</h4>
+                                <h2 class="text-muted text-dark"><?= htmlentities($song->getName())?></h2>
+                                <p class="text-uppercase"><?= $song->getExcerpt() ?></p>
                             </div>
-                            <div class="single-item-price align-self-end">
-                                <hi class="text-uppercase text-dark">$10</hi>
-                            </div>
-                            <h3 class="special-text text-capitalize">chef selection</h3>
+                            <a href="<?= $router->url('song', ['id' => $song->getID(), 'slug' => $song->getSlug()]) ?>"><h3 class="special-text text-capitalize">Voir le cantique</h3></a>
                     </div>
                     <!--end single item-->
-
-                     <!-- title-->
-                     <div class="row">
-                        <div class="col">
-                            <h1 class="primary-color text-uppercase">sushi</h1>
-                        </div>
                     </div>
-                    <!-- end title-->
-
-                    <!-- single item-->
-                        <div class="single-item d-flex justify-content-between my-3 p-3">
-                            <div class="single-item-text">
-                                <h2 class="text-uppercase text-dark">sushi</h2>
-                                <h4 class="text-muted">lorem ipsum dolor amet.</h4>
-                            </div>
-                            <div class="single-item-price align-self-end">
-                                <hi class="text-uppercase text-dark">$10</hi>
-                            </div>
-                        </div>
-                    <!--end single item-->
-                     <!-- single item-->
-                    <div class="single-item d-flex justify-content-between my-3 p-3 special">
-                            <div class="single-item-text">
-                                <h2 class="text-uppercase text-dark">sushi</h2>
-                                <h4 class="text-muted">lorem ipsum dolor amet.</h4>
-                            </div>
-                            <div class="single-item-price align-self-end">
-                                <hi class="text-uppercase text-dark">$10</hi>
-                            </div>
-                            <h3 class="special-text text-capitalize">chef selection</h3>
+                    <?php endforeach ?>
                     </div>
-                    <!--end single item-->
-
-                </div>
-
-
-                <div class="col-md-6">
-
-
-                      <!-- title-->
-                      <div class="row">
-                        <div class="col">
-                            <h1 class="primary-color text-uppercase">sushimi</h1>
-                        </div>
-                    </div>
-                    <!-- end title-->
-                     <!-- single item-->
-                     <div class="single-item d-flex justify-content-between my-3 p-3 special">
-                        <div class="single-item-text">
-                            <h2 class="text-uppercase text-dark">sushimi</h2>
-                            <h4 class="text-muted">lorem ipsum dolor amet.</h4>
-                        </div>
-                        <div class="single-item-price align-self-end">
-                            <hi class="text-uppercase text-dark">$10</hi>
-                        </div>
-                        <h3 class="special-text text-capitalize">chef selection</h3>
-                    </div>
-                    <!--end single item-->
-                    <!-- single item-->
-                        <div class="single-item d-flex justify-content-between my-3 p-3">
-                            <div class="single-item-text">
-                                <h2 class="text-uppercase text-dark">sushimi</h2>
-                                <h4 class="text-muted">lorem ipsum dolor amet.</h4>
-                            </div>
-                            <div class="single-item-price align-self-end">
-                                <hi class="text-uppercase text-dark">$10</hi>
-                            </div>
-                        </div>
-                    <!--end single item-->
-
-                     <!-- title-->
-                     <div class="row">
-                        <div class="col">
-                            <h1 class="primary-color text-uppercase">rolls</h1>
-                        </div>
-                    </div>
-                    <!-- end title-->
-
-                    <!-- single item-->
-                    <div class="single-item d-flex justify-content-between my-3 p-3 special">
-                        <div class="single-item-text">
-                            <h2 class="text-uppercase text-dark">roll</h2>
-                            <h4 class="text-muted">lorem ipsum dolor amet.</h4>
-                        </div>
-                        <div class="single-item-price align-self-end">
-                            <hi class="text-uppercase text-dark">$10</hi>
-                        </div>
-                        <h3 class="special-text text-capitalize">chef selection</h3>
-                    </div>
-                    <!--end single item-->
-
-
-                    <!-- single item-->
-                        <div class="single-item d-flex justify-content-between my-3 p-3">
-                            <div class="single-item-text">
-                                <h2 class="text-uppercase text-dark">roll</h2>
-                                <h4 class="text-muted">lorem ipsum dolor amet.</h4>
-                            </div>
-                            <div class="single-item-price align-self-end">
-                                <hi class="text-uppercase text-dark">$10</hi>
-                            </div>
-                        </div>
-                    <!--end single item-->
-                    
-
-                </div>
-            </div>
+               
 
         </div>
     </section>
@@ -286,14 +169,14 @@ $posts = $table->sixRows();
                 <div class="col-md-6 my-4">
                     <h1 class="text-uppercase display-3">about us</h1>
                     <h2 class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem ducimus vitae, omnis alias ad assumenda!</h2>
-                    <a href="#" class="btn main-btn my-4 text-capitalize">learn more</a>
+                    <a href="<?= $router->url('about') ?>" class="btn main-btn my-4 text-capitalize">learn more</a>
                 </div>
                 <div class="col-md-6 about-pictures my-4 d-none d-lg-block">
                     <img src="/welcome_assets/img/bira.jpg" alt="menu" class="img-1 img-thumbnail about-image">
-                    <img src="/welcome_assets/img/menu-item2.jpeg" alt="menu" class="img-2 img-thumbnail about-image">
-                    <img src="/welcome_assets/img/menu-item3.jpeg" alt="menu" class="img-3 img-thumbnail about-image">
-                    <img src="/welcome_assets/img/menu-item4.jpeg" alt="menu" class="img-4 img-thumbnail about-image">
-                    <img src="/welcome_assets/img/menu-item4.jpeg" alt="menu" class="img-5 img-thumbnail about-image">
+                    <img src="/welcome_assets/img/fju kn.jpg" alt="menu" class="img-2 img-thumbnail about-image">
+                    <img src="/welcome_assets/img/ypg cameroon.jpg" alt="menu" class="img-3 img-thumbnail about-image">
+                    <img src="/welcome_assets/img/t56026714442014908.jpg" alt="menu" class="img-4 img-thumbnail about-image">
+                    <img src="/welcome_assets/img/t56026714442014908.jpg" alt="menu" class="img-5 img-thumbnail about-image">
                 </div>
             </div>
         </div>
@@ -302,67 +185,30 @@ $posts = $table->sixRows();
     <!---end of about-->
 
     <!-- reviews-->
-
     <section id="reviews" class="py-5">
         <div id="slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+                <?php foreach($comments as $comment): ?>
                 <!-- carousel items-->
-                <div class="carousel-item active">
+                <div class="carousel-item <?php if($comment === $comments[0]): ?>active<?php endif ?>">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-10 mx-auto d-flex justify-content-between review-item py-3">
-                                <!--image-->
-                                <div class="align-self-center ml-3">
-                                    <img src="/welcome_assets/img/customer-1.jpg" alt="customer" class="rounded-circle review-img">
-                                </div>
                                 <!-- text-->
                                 <div class="review-text px-5">
-                                    <h2 class="text-capitalize mb-3 primary-color">customer name</h2>
-                                    <p class="lead text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, facilis?</p>
+                                    <h2 class="text-muted mb-3 "><?= htmlentities($comment->getPseudo())?></h2>
+                                    <p class="lead text-capitalize"><?= $comment->getFormattedContent() ?></p>
+                                </div>
+                                <!--image-->
+                                <div class="align-self-center ml-3">
+                                    <img src="/welcome_assets/img/t56026714442014908.jpg" alt="customer" class="rounded-circle review-img">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- end of carousel item-->
-                 <!-- carousel items-->
-                 <div class="carousel-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-10 mx-auto d-flex justify-content-between review-item py-3">
-                                <!--image-->
-                                <div class="align-self-center ml-3">
-                                    <img src="/welcome_assets/img/customer-2.jpg" alt="customer" class="rounded-circle review-img">
-                                </div>
-                                <!-- text-->
-                                <div class="review-text px-5">
-                                    <h2 class="text-capitalize mb-3 primary-color">customer name</h2>
-                                    <p class="lead text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, facilis?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end of carousel item-->
-                 <!-- carousel items-->
-                 <div class="carousel-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-10 mx-auto d-flex justify-content-between review-item py-3">
-                                <!--image-->
-                                <div class="align-self-center ml-3">
-                                    <img src="/welcome_assets/img/customer-1.jpg" alt="customer" class="rounded-circle review-img">
-                                </div>
-                                <!-- text-->
-                                <div class="review-text px-5">
-                                    <h2 class="text-capitalize mb-3 primary-color">customer name</h2>
-                                    <p class="lead text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, facilis?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end of carousel item-->
+                <?php endforeach ?>
             </div>
             <!-- carousel controls-->
             <a href="#slider" class="carousel-control-prev" role="button" data-slide="prev">
@@ -373,7 +219,6 @@ $posts = $table->sixRows();
             </a>
         </div>
     </section>
-
     <!--end reviews-->
 
     <!--- team-->
@@ -427,7 +272,7 @@ $posts = $table->sixRows();
                             <div class="card-title">
                                 <h1 class="text-capitalize">Lamy franck</h1>
                             </div>
-                            <h4 class="primary-color text-capitalize">Evangéliste - Infographe</h4>
+                            <h4 class="primary-color text-capitalize">Ouvrier - Infographe</h4>
                         </div>
                         <div class="card-footer team-icons d-flex justify-content-between">
                             <a href="#"><i class="fab fa-facebook fa-2x"></i></a>

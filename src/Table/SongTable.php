@@ -38,4 +38,15 @@ final class SongTable extends Table {
         $songs = $paginatedQuery->getItems(Song::class);
         return [$songs, $paginatedQuery];
     }
+
+    public function research(string $req)
+    {
+        $paginatedQuery = new PaginatedQuery(
+            "SELECT * FROM {$this->table} WHERE name like '$req'",
+            "SELECT COUNT(id) FROM {$this->table}",
+            $this->pdo
+        );
+        $researched = $paginatedQuery->getItems(Song::class);
+        return [$researched, $paginatedQuery];
+    }
 }

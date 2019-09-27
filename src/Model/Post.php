@@ -13,6 +13,8 @@ class Post{
     private $name;
 
     private $content;
+    
+    private $images;
 
     private $created_at;
 
@@ -118,4 +120,24 @@ class Post{
         $category->setPost($this);
     }
 
+
+    /**
+     * Get the value of images
+     */ 
+    public function getImages(): ?string
+    {
+        return $this->images;
+    }
+
+    /**
+     * Set the value of images
+     *
+     * @return  self
+     */ 
+    public function setImages($images): self
+    {
+        $this->images = $images;
+
+        return $this;
+    }
 }

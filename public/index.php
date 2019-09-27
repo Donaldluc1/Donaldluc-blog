@@ -24,7 +24,8 @@ $query = (http_build_query($get));
 
 $router = new Router(dirname(__DIR__) . '/views');
 $router
-    ->get('/', 'post/index', 'home')
+    ->get('/', 'index', 'welcome')
+    ->get('/blog', 'post/index', 'home')
     ->get('/blog/category/[*:slug]-[i:id]','category/show', 'category')
     ->match('/blog/[*:slug]-[i:id]', 'post/show', 'post')
     ->match('/login', 'auth/login', 'login')

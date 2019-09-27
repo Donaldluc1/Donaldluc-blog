@@ -55,6 +55,18 @@ HTML;
 HTML;
     }
 
+    public function file(string $key, string $label)
+    {
+        $type = "file";
+        return <<<HTML
+        <div class="form-group">
+            <label for="field{$key}">{$label}</label>
+            <input type="{$type}" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}" required>
+            {$this->getErrorFeedback($key)}
+        </div>
+HTML;
+    }
+
     private function getValue(string $key)
     {
         if(is_array($this->data)){

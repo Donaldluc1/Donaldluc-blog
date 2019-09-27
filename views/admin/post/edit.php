@@ -6,6 +6,7 @@ use App\Validators\PostValidator;
 use App\ObjectHelper;
 use App\Auth;
 use App\Table\CategoryTable;
+use CoffeeCode\Uploader\Image;
 
 Auth::check();
 
@@ -17,9 +18,15 @@ $post = $postTable->find($params['id']);
 $categoryTable->hydratePosts([$post]);
 $succes = false;
 
+$image = new Image("uploads", "images");
+
 $errors = [];
 
 if(!empty($_POST)){
+    if (!empty($_FILES)) {
+        $upload = $image->upload($_FILES['images'], $_POST['name']);
+        $post->setImages($upload);
+    }
     $v = new PostValidator($_POST, $postTable, $post->getID(), $categories);
     ObjectHelper::hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at']);
     if($v->validate()){

@@ -15,6 +15,11 @@ if($song->getSlug() !== $slug){
 }
 
 ?>
-
-<h1><?= e($song->getName())?></h1>
-<p><?= $song->getFormattedContent() ?></p>
+<br>
+<br>
+    <div class="container card mb-3">
+        <br>
+        <br>
+        <h1 class="card-title text-center"><?= e($song->getName())?></h1>
+        <p class="card-body"><?= $song->getFormattedContent() ?></p>
+    </div>

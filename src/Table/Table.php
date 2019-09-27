@@ -57,6 +57,12 @@ abstract class Table{
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
 
+    public function sixRows(): array
+    {
+        $sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC LIMIT 6";
+        return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
+    }
+
     public function delete (int $id)
     {
         $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");

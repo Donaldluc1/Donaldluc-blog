@@ -11,15 +11,18 @@ $table = new SongTable($pdo);
 $link = $router->url('songs');
 ?>
 
-<h1>Cantiques</h1>
 
-<div class="row">
-    <?php foreach($songs as $song): ?>
-        <div class="col-md-3">
-           <?php require 'card.php'; ?>
+    <div class="container">
+        <br>
+        <br>
+        <div class="row">
+            <?php foreach($songs as $song): ?>
+                <div class="card-deck col-md-3">
+                <?php require 'card.php'; ?>
+                </div>
+            <?php endforeach?>
         </div>
-    <?php endforeach?>
-</div>
+    </div>
 
 <div class="d-flex justify-content-between my-4">
     <?= $pagination->previousLink($link); ?>

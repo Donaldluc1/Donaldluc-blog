@@ -22,16 +22,19 @@ $title = "Categorie {$category->getName()}";
 
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()])
 ?>
+<br>
 
-<h1><?= e($title)?> </h1>
+    <div class="container">
+        <h1><?= e($title)?> </h1>
 
-<div class="row">
-    <?php foreach($posts as $post): ?>
-        <div class="col-md-3">
-           <?php require dirname(__DIR__) . '/post/card.php'; ?>
+        <div class="row">
+            <?php foreach($posts as $post): ?>
+                <div class="card-deck col-md-3">
+                <?php require dirname(__DIR__) . '/post/card.php'; ?>
+                </div>
+            <?php endforeach?>
         </div>
-    <?php endforeach?>
-</div>
+    </div>
 
 <div class="d-flex justify-content-between my-4">
     <?= $paginatedQuery->previousLink($link) ?>

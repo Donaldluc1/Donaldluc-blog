@@ -13,5 +13,6 @@ return array(
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
+    'CoffeeCode\\Uploader\\' => array($vendorDir . '/coffeecode/uploader/src'),
     'App\\' => array($baseDir . '/src'),
 );

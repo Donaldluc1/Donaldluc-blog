@@ -36,6 +36,10 @@ class ComposerStaticInit960ba3738942fcb783321980ecaa348d
         array (
             'Faker\\' => 6,
         ),
+        'C' => 
+        array (
+            'CoffeeCode\\Uploader\\' => 20,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -70,6 +74,10 @@ class ComposerStaticInit960ba3738942fcb783321980ecaa348d
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'CoffeeCode\\Uploader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/coffeecode/uploader/src',
         ),
         'App\\' => 
         array (

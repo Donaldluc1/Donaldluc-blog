@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col">
     <div class="card mb-3">
         <div class="card-body">
             <h5 class="card-title"><?= htmlentities($comment->getPseudo())?></h5>

@@ -13,13 +13,24 @@ if($song->getSlug() !== $slug){
     http_response_code(301);
     header('Location: ' . $url);
 }
-
+$title = e($song->getName());
 ?>
 <br>
 <br>
-    <div class="container card mb-3">
-        <br>
-        <br>
-        <h1 class="card-title text-center"><?= e($song->getName())?></h1>
-        <p class="card-body"><?= $song->getFormattedContent() ?></p>
+    <div class="container show">
+       <div class="row">
+           <div class="col-md-4">
+                <div class="card">
+                    <h1 class="card-title ml-3"><?= e($song->getName())?></h1>
+                    <p class="card-body"><?= $song->getFormattedContent() ?></p>
+                </div>
+           </div>
+           <div class="col-md-4">
+
+           </div>
+           <div class="col-md-4">
+           </div>
+       </div>
     </div>
+<br>
+<br>

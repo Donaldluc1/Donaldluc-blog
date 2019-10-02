@@ -12,7 +12,7 @@ $link = $router->url('home');
 ?>
 
 
-    <div class="container">
+    <div class="container show">
         <br>
         <br>
         <div class="row">

@@ -7,17 +7,27 @@ use App\Model\Post;
 use App\Validators\PostValidator;
 use App\ObjectHelper;
 use App\Auth;
+use CoffeeCode\Uploader\Image;
 
 Auth::check();
 
 $errors = [];
+
+
+
 $post = new Post();
 $pdo = Connection::getPDO();
 $categoryTable = new CategoryTable($pdo);
 $categories = $categoryTable->list();
 $post->setCreatedAt(date('Y-m-d H:i:s'));
 
+$image = new Image("uploads", "images");
+
 if(!empty($_POST)){
+    if (!empty($_FILES)) {
+        $upload = $image->upload($_FILES['images'], $_POST['name']);
+        $post->setImages($upload);
+    }
     $postTable = new PostTable($pdo);
     $v = new PostValidator($_POST, $postTable, $post->getID(), $categories);
     ObjectHelper::hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at']);

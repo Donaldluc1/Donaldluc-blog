@@ -31,7 +31,7 @@ HTML;
         return <<<HTML
             <div class="form-group">
                 <label for="field{$key}">{$label}</label>
-                <textarea type="text" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}" required>{$value}</textarea>
+                <textarea type="text" id="field{$key}" name="{$key}" rows="10" class="{$this->getInputClass($key)}" required>{$value}</textarea>
                 {$this->getErrorFeedback($key)}
             </div>
 HTML;

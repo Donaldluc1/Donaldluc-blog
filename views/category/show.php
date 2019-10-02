@@ -24,7 +24,7 @@ $link = $router->url('category', ['id' => $category->getID(), 'slug' => $categor
 ?>
 <br>
 
-    <div class="container">
+    <div class="container show">
         <h1><?= e($title)?> </h1>
 
         <div class="row">

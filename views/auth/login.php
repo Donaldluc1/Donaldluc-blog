@@ -30,7 +30,11 @@ if(!empty($_POST)){
 $form = new Form($user, $errors);
 ?>
 
-<div class="container">
+<div class="container show">
+
+<br>
+<br>
+<br>
     <h1>Se connecter</h1>
 
     <?php if(isset($_GET['forbidden'])): ?>
@@ -45,3 +49,8 @@ $form = new Form($user, $errors);
         <button type="submit" class="btn btn-primary">Se connecter</button>
     </form>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>

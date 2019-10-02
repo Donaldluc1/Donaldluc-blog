@@ -65,7 +65,7 @@ abstract class Table{
 
     public function sixSongs(): array
     {
-        $sql = "SELECT * FROM {$this->table} LIMIT 6";
+        $sql = "SELECT * FROM {$this->table} ORDER BY id DESC LIMIT 6";
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
 

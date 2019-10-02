@@ -4,6 +4,8 @@ use App\Table\CommentsTable;
 use App\Table\PostTable;
 use App\Table\SongTable;
 
+$title = 'Disciple, Le guide du serviteur de Dieu';
+
 $pdo = Connection::getPDO(); 
 
 $table = new PostTable($pdo);
@@ -14,102 +16,7 @@ $songs = $table->sixSongs();
 
 $commentsTable = new CommentsTable($pdo);
 $comments = $commentsTable->sixRows(); 
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sushi project Recording</title>
-    <!--Bootstrap Css -->
-    <link rel="stylesheet" href="/welcome_assets/css/bootstrap.min.css">
-    <!-- Main Css -->
-    <link rel="stylesheet" href="/welcome_assets/css/main.css">
-    <!-- FonteAwesome-->
-    <script src="/welcome_assets/js/all.js"></script>
-    <!--- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet">
-    <!-- Magnific popup-->
-    <link rel="stylesheet" href="/welcome_assets/magnific-popup/magnific-popup.css">
-</head>
-<body>
-    <!---- Social icons-->
-    <div class="container-fluid info p-3" id="top-icons">
-        <div class="row">
-            <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
-                <div class="info-icons p-2">
-                    <a href="#" class="mr-2 primary-color"><i class="fab fa-facebook fa-2x"></i></a>
-                    <a href="#" class="mr-2 primary-color"><i class="fab fa-instagram fa-2x"></i></a>
-                    <a href="#" class="mr-2 primary-color"><i class="fab fa-twitter fa-2x"></i></a>
-                    <a href="#" class="mr-2 primary-color"><i class="fab fa-yelp fa-2x"></i></a>
-                </div>
-                <h2 class="primary-color p-2 text-capitalize">... Si quelqu'un me sert, le pére l'honorera</h2>
-            </div>
-        </div>
-    </div>
-    <!---- End social icons -->
-
-    <!---Header section-->
-
-    <header id="header">
-        <div class="container">
-            <div class="row height-90 align-items-center justify-content-center">
-                <div class="col">
-                    <div class="banner text-center">
-                        
-                        <a href="<?= $router->url('home') ?>" class="btn main-btn sushi-btn my-4 text-capitalize">Notre Blog</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a href="#special-items" class="btn header-link primary-color"><i class="fas fa-arrow-down"></i></a>
-    </header>
-    <!--- End header section-->
-    
-    <!--Nav-bar-->
-
-    <nav class="navbar navbar-expand-lg">
-        <a href="#" class="navbar-brand text-uppercase primary-color">DISCIPLE</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
-            <div class="toggler-btn">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-            </div>
-        </button>
-        <!--links  -->
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a href="#special-items" class="nav-link text-capitalize">Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#menu" class="nav-link text-capitalize">Quantiques</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link text-capitalize">A propos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#reviews" class="nav-link text-capitalize">Commentaires</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#team" class="nav-link text-capitalize"> equipe</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link text-capitalize">contact</a>
-                </li>
-            </ul>
-            <form class="form-inline d-none d-lg-block mr-5">
-                <a class="btn nav-btn text-capitalize" href="<?= $router->url('home') ?>" type="button">Notre blog</a>
-            </form>
-            <form class="form-inline d-none d-lg-block mr-5">
-                <a class="btn nav-btn text-capitalize" href="<?= $router->url('songs') ?>" type="button">Nos Cantiques</a>
-            </form>
-        </div>
-    </nav>
-
-
-    <!-- End nav-bar-->
+?>
 
     <!-- Menu items-->
 
@@ -172,10 +79,10 @@ $comments = $commentsTable->sixRows();
                     <a href="<?= $router->url('about') ?>" class="btn main-btn my-4 text-capitalize">learn more</a>
                 </div>
                 <div class="col-md-6 about-pictures my-4 d-none d-lg-block">
-                    <img src="/welcome_assets/img/bira.jpg" alt="menu" class="img-1 img-thumbnail about-image">
-                    <img src="/welcome_assets/img/fju kn.jpg" alt="menu" class="img-2 img-thumbnail about-image">
+                    <img src="/welcome_assets/img/tfteen.jpeg" alt="menu" class="img-1 img-thumbnail about-image">
+                    <img src="/welcome_assets/img/caleb.jpg" alt="menu" class="img-2 img-thumbnail about-image">
                     <img src="/welcome_assets/img/ypg cameroon.jpg" alt="menu" class="img-3 img-thumbnail about-image">
-                    <img src="/welcome_assets/img/t56026714442014908.jpg" alt="menu" class="img-4 img-thumbnail about-image">
+                    <img src="/welcome_assets/img/evangelisation.jpg" alt="menu" class="img-4 img-thumbnail about-image">
                     <img src="/welcome_assets/img/t56026714442014908.jpg" alt="menu" class="img-5 img-thumbnail about-image">
                 </div>
             </div>
@@ -229,17 +136,17 @@ $comments = $commentsTable->sixRows();
                 <!----team member-->
                 <div class="col-9 col-sm-6 col-lg-4 mx-auto my-4">
                     <div class="card">
-                        <img src="/welcome_assets/img/t56026714442014908.jpg" alt="team member" class="card-img-top">
+                        <a href="https://blogs.universal.org/bispomacedo/fr/" target="_blank"><img src="/welcome_assets/img/macedo.jpg" alt="team member" class="card-img-top"></a>
                         <div class="card-body">
                             <div class="card-title">
-                                <h1 class="text-capitalize">Cisse Mariama</h1>
+                                <h1 class="text-capitalize">Edir Macedo</h1>
                             </div>
-                            <h4 class="primary-color text-capitalize">évangeliste - Rédactrice Web</h4>
+                            <h4 class="primary-color text-capitalize">fondateur de l'église universelle</h4>
                         </div>
                         <div class="card-footer team-icons d-flex justify-content-between">
-                            <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="https://web.facebook.com/BispoMacedo/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                            <a href="https://www.instagram.com/bispomacedo/?hl=fr" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="https://twitter.com/bispomacedo?lang=fr" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
                             <a href="#"><i class="fab fa-yelp fa-2x"></i></a>
                         </div>
                     </div>
@@ -248,17 +155,17 @@ $comments = $commentsTable->sixRows();
                 <!----team member-->
                 <div class="col-9 col-sm-6 col-lg-4 mx-auto my-4">
                     <div class="card">
-                        <img src="/welcome_assets/img/t56026714442014908.jpg" alt="team member" class="card-img-top">
+                        <a href="https://blogs.universal.org/renatocardoso/fr/" target="_blank"><img src="/welcome_assets/img/renato.jpg" alt="team member" class="card-img-top"></a>
                         <div class="card-body">
                             <div class="card-title">
-                                <h1 class="text-capitalize">atangana lucien</h1>
+                                <h1 class="text-capitalize">renato & cristiane</h1>
                             </div>
-                            <h4 class="primary-color text-capitalize">Evangéliste - Developpeur Web</h4>
+                            <h4 class="primary-color text-capitalize">the love school</h4>
                         </div>
                         <div class="card-footer team-icons d-flex justify-content-between">
-                            <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="https://web.facebook.com/renatocardoso.fr/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                            <a href="https://www.instagram.com/renatocardosooficial/?hl=fr" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="https://twitter.com/bprenato" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
                             <a href="#"><i class="fab fa-yelp fa-2x"></i></a>
                         </div>
                     </div>
@@ -267,17 +174,17 @@ $comments = $commentsTable->sixRows();
                 <!----team member-->
                 <div class="col-9 col-sm-6 col-lg-4 mx-auto my-4">
                     <div class="card">
-                        <img src="/welcome_assets/img/t56026714442014908.jpg" alt="team member" class="card-img-top">
+                        <a href="https://www.universal.org/templo-de-salomao/" target="_blank"><img src="/welcome_assets/img/salomon.jpg" alt="team member" class="card-img-top"></a>
                         <div class="card-body">
                             <div class="card-title">
-                                <h1 class="text-capitalize">Lamy franck</h1>
+                                <h1 class="text-capitalize">temple de salomon</h1>
                             </div>
-                            <h4 class="primary-color text-capitalize">Ouvrier - Infographe</h4>
+                            <h4 class="primary-color text-capitalize">siège mondiale de l'universelle</h4>
                         </div>
                         <div class="card-footer team-icons d-flex justify-content-between">
-                            <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="https://web.facebook.com/TemploDeSalomao/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                            <a href="https://www.instagram.com/templodesalomao/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="https://twitter.com/templodesalomao?lang=fr" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
                             <a href="#"><i class="fab fa-yelp fa-2x"></i></a>
                         </div>
                     </div>
@@ -295,9 +202,7 @@ $comments = $commentsTable->sixRows();
             <div class="row">
                 <div class="col-md-6 my-3">
                     <div class="embed-responsive embed-responsive-21by9 height-60">
-                        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1989.816223293607!2d9.646778474668514!3d4.09498818429802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106111584421d913%3A0x391a46bed6dea0d5!2sMarch%C3%A9+Du+Rail!5e0!3m2!1sfr!2scm!4v1559834375314!5m2!1sfr!2scm" 
-                            width="100%" frameborder="0" style="border:0" allowfullscreen>
-                        </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1989.9867557156836!2d9.705061070472462!3d4.025817257304421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106112b94356ab3f%3A0xfdfcde68b5dc9153!2s%C3%89glise%20Universelle%2C%20Douala!5e0!3m2!1sfr!2scm!4v1569926944296!5m2!1sfr!2scm" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                     </div>
                 </div>
                 <div class="col-md-6 my-3 align-self-center">
@@ -346,33 +251,4 @@ $comments = $commentsTable->sixRows();
 
     <!--end of contact section-->
 
-     <!---- Social icons-->
-     <div class="container-fluid info p-3">
-        <div class="row">
-            <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
-                <div class="info-icons p-2">
-                    <a href="#" class="mr-2 primary-color"><i class="fab fa-facebook fa-2x"></i></a>
-                    <a href="#" class="mr-2 primary-color"><i class="fab fa-instagram fa-2x"></i></a>
-                    <a href="#" class="mr-2 primary-color"><i class="fab fa-twitter fa-2x"></i></a>
-                    <a href="#" class="mr-2 primary-color"><i class="fab fa-yelp fa-2x"></i></a>
-                </div>
-                <h2 class="primary-color p-2 text-uppercase">&copy;copyright 2019</h2>
-            </div>
-        </div>
-    </div>
-    <!---- End social icons -->
-    <a href="#top-icons" id="back-to-top" class="p-1"><i class="fas fa-arrow-up primary-color fa-3x"></i></a>
-
-
-    <!-- Jquery-->
-    <script src="/welcome_assets/js/jquery-3.4.1.min.js"></script>
-    <!-- Bootstrap Js-->
-    <script src="/welcome_assets/js/bootstrap.bundle.min.js"></script>
-    <!-- Ripple-->
-    <script src="/welcome_assets/js/jquery.ripples-min.js"></script>
-    <!-- Magnific popup-->
-    <script src="/welcome_assets/magnific-popup/jquery.magnific-popup.js"></script>
-    <!-- JS-->
-    <script src="/welcome_assets/js/script.js"></script>
-</body>
-</html>
+ 

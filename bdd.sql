@@ -60,3 +60,12 @@ CREATE TABLE user (
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 )
+
+CREATE TABLE visitors (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    created_at DATETIME NOT NULL,
+    PRIMARY KEY (id)
+
+)

@@ -210,8 +210,18 @@ $comments = $commentsTable->sixRows();
                         <div class="card-header">
                             <h1 class="text-uppercase">contact list</h1>
                         </div>
+                        <?php if(isset($_GET['failed'])): ?>
+                            <div class="alert alert-danger">
+                                <h3>Veuillez bien remplir les champs</h3>
+                            </div>
+                        <?php endif ?>
+                        <?php if(isset($_GET['success'])): ?>
+                            <div class="alert alert-success">
+                                <h3>Merci Pour votre inscription</h3>
+                            </div>
+                        <?php endif ?>
                         <div class="card-body">
-                            <form>
+                            <form method="post" action="<?= $router->url('sendMail') ?>">
                                 <!-- input group-->
                                 <div class="input-group my-3">
                                     <div class="input-group-prepend">
@@ -219,7 +229,7 @@ $comments = $commentsTable->sixRows();
                                             <i class="fas fa-user"></i>
                                         </span>
                                     </div>
-                                    <input type="text" id="text" placeholder="enter your name here" class="form-control form-control-lg">
+                                    <input type="text" name="username" id="username" placeholder="enter your name here" class="form-control form-control-lg">
                                 </div>
                                 <div class="input-group my-3">
                                     <div class="input-group-prepend">
@@ -227,7 +237,7 @@ $comments = $commentsTable->sixRows();
                                             <i class="fas fa-phone"></i>
                                         </span>
                                     </div>
-                                    <input type="text" id="phone" placeholder="enter your phone here" class="form-control form-control-lg">
+                                    <input type="text" name="phone" id="phone" placeholder="enter your phone here" class="form-control form-control-lg">
                                 </div>
                                 <div class="input-group my-3">
                                     <div class="input-group-prepend">
@@ -235,7 +245,7 @@ $comments = $commentsTable->sixRows();
                                             <i class="fas fa-envelope"></i>
                                         </span>
                                     </div>
-                                    <input type="email" id="email" placeholder="enter your email here" class="form-control form-control-lg">
+                                    <input type="email" name="email" id="email" placeholder="enter your email here" class="form-control form-control-lg">
                                 </div>
                                 <button type="submit" class="btn btn-block btn-lg text-uppercase contact-btn">
                                     <i class="far fa-hand-point-right mr-2"></i> click here

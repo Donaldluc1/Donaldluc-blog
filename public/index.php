@@ -34,6 +34,8 @@ $router
     ->match('/blog/[*:slug]-[i:id]', 'post/show', 'post')
     ->match('/login', 'auth/login', 'login')
     ->post('/logout', 'auth/logout', 'logout')
+    //send email
+    ->post('/sendMail', 'sendMail', 'sendMail')
     //Song
     ->get('/songs', 'songs/index', 'songs')
     ->match('/songs/[*:slug]-[i:id]', 'songs/show', 'song')

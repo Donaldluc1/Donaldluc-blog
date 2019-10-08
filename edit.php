@@ -63,12 +63,12 @@ $form = new Form($post, $errors);
 <?php endif ?>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
     <h1>Editer l'article <?= e($post->getName())?></h1>
     </div>
     <?php if($post->getImages()): ?>
-    <div class="col-md-6">
-        <img src="/<?= $post->getImages() ?>" alt="<?= e($post->getName())?>" width="300">
+    <div class="col-md-4">
+        <img src="/public/<?= $post->getImages() ?>" alt="<?= e($post->getName())?>" width="300">
     </div>
     <?php endif ?>
 </div>

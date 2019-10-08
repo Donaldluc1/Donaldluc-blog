@@ -68,4 +68,15 @@ final class PostTable extends Table {
         (new CategoryTable($this->pdo))->hydratePosts($posts);
         return [$posts, $paginatedQuery];
     }
+
+
+    public function deleteImage(?string $oldFile): void
+    {
+       if($oldFile){
+        $oldFile = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .  $oldFile;
+        if(file_exists($oldFile)){
+            unlink($oldFile);
+        }
+       }
+    }
 }

@@ -99,7 +99,10 @@
            <div class="main">
            <?= $content ?>
            </div>
+    <footer>
+
     <!---- Social icons-->
+    <a href="#top-icons" id="back-to-top" class="p-1"><i class="fas fa-arrow-up primary-color fa-3x"></i></a>
     <div class="container-fluid info p-3">
         <div class="row">
             <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
@@ -115,7 +118,7 @@
         </div>
     </div>
     <!---- End social icons -->
-    <a href="#top-icons" id="back-to-top" class="p-1"><i class="fas fa-arrow-up primary-color fa-3x"></i></a>
+    </footer>
     <!-- Jquery-->
     <script src="/welcome_assets/js/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap Js-->

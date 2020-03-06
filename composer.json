@@ -6,7 +6,7 @@
         "fzaninotto/faker": "^1.8",
         "vlucas/valitron": "1.4.5",
         "coffeecode/uploader": "^1.0",
-        "phpmailer/phpmailer": "5.2.9"
+        "phpmailer/phpmailer": "5.2.27"
     },
     "autoload":{
         "files": ["src/helpers.php"],
